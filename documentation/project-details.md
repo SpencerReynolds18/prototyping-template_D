@@ -2,7 +2,26 @@ This is your project details file. Here you can start by giving a brief overview
 
 ## Project Overview
 
-This project is a Next.js-based template designed to accelerate the development of modern web applications. It incorporates best practices for frontend development, including a robust tech stack featuring Next.js, Tailwind CSS, Motion for animations, Supabase for backend services, and Zustand for state management.
+This is an enterprise cloud platform web interface built with Next.js. The application features a modern, simple design with a three-panel layout: a sidebar for navigation, a central content pane, and a top navigation bar. The project uses **Fluent UI React v8.125.3** as the exclusive UI component library.
+
+## UI Component Library
+
+**CRITICAL**: This project uses **ONLY** components from Fluent UI React v8.125.3 (`@fluentui/react@8.125.3`). All UI components must be sourced from Fluent UI React v8. Custom components should be composed using Fluent UI React v8 primitives.
+
+Key Fluent UI v8 components to use:
+- `Fabric` or `ThemeProvider` for theming
+- `Nav` for sidebar navigation
+- `CommandBar` for top navigation/actions
+- `Stack` for layout
+- `TextField`, `Button`, `Icon`, etc. for form and UI elements
+- `initializeIcons()` must be called to load icon fonts
+
+## Layout Structure
+
+The application follows a standard enterprise layout pattern:
+- **Top Navigation**: Header bar with global navigation, user profile, and notifications using Fluent UI `CommandBar` or `Stack` with navigation items
+- **Sidebar**: Collapsible navigation sidebar using Fluent UI `Nav` component
+- **Central Content Pane**: Main content area that displays page-specific content using Fluent UI `Stack` for layout
 
 ## Package Management and Build Process
 
@@ -22,8 +41,8 @@ Below is a high-level overview of the main project directories and their intende
 - **`app/`**: Contains all routes, layouts, and UI for the Next.js App Router. This includes `page.tsx` for individual routes, `layout.tsx` for shared UI, `loading.tsx` for loading states, and `error.tsx` for error handling within routes.
 
 - **`components/`**: Houses all React components used throughout the application.
-    - **`components/custom/`**: This is where you'll create bespoke components tailored specifically for this project. These components might compose multiple UI primitives or implement unique application features.
-    - **`components/ui/`**: Contains general-purpose UI components, often sourced from a library like Shadcn UI. These are the building blocks (buttons, inputs, cards, etc.) used to construct more complex interfaces.
+    - **`components/custom/`**: This is where you'll create bespoke components tailored specifically for this project. These components must be composed using Fluent UI React v8 primitives.
+    - **`components/ui/`**: This directory is not used in this project. All UI components come from Fluent UI React v8.
 
 - **`documentation/`**: Holds all project-related documentation. The `project-details.md` (this file) is the primary source of truth for project context, architecture, and conventions.
 
@@ -41,6 +60,6 @@ We use Zustand for global state management due to its simplicity, small bundle s
 
 ### Stores
 
-- **`stores/useBearStore.ts`**: A sample store to demonstrate basic Zustand functionality, managing a count of bears with actions to modify this count. This serves as an initial example and can be adapted or removed as project-specific stores are developed.
+- **`stores/useAppStore.ts`**: A starter Zustand store template. Replace this with your own state management needs as you build out your application.
 
 This setup provides a foundation for scalable state management as the application grows.

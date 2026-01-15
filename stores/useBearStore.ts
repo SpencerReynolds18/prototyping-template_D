@@ -1,15 +1,10 @@
 import { create } from 'zustand';
 
-interface BearState {
-  bears: number;
-  increasePopulation: () => void;
-  removeAllBears: () => void;
-  updateBears: (newBears: number) => void;
+// Example store - replace with your own state management needs
+interface AppState {
+  // Add your state properties here
 }
 
-export const useBearStore = create<BearState>()((set) => ({
-  bears: 0,
-  increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
-  removeAllBears: () => set({ bears: 0 }),
-  updateBears: (newBears: number) => set({ bears: newBears }),
+export const useAppStore = create<AppState>()((set) => ({
+  // Add your initial state and actions here
 })); 
